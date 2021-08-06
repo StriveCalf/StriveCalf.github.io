@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32*32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16*16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="教你用 jVectorMap 制作属于自己的旅行足迹 jVectorMapJVectorMap 是一个优秀的、兼容性强的 jQuery 地图插件。 它可以工作在包括 IE6 在内的各款浏览器中，矢量图输出，除官方提供各国地图数据外，用户可以使用数据转换程序定制地图数据。例如街道地图、小区地图等等。 JVectorMap 官方网站提供了很多相关文档和使用示例，感兴趣的小伙伴可以自己研究一下。 官方网">
+<meta property="og:type" content="website">
+<meta property="og:title" content="StriveCalf">
+<meta property="og:url" content="http://example.com/%E8%B6%B3%E8%BF%B9/jVectorMap-Footprint/README.html">
+<meta property="og:site_name" content="StriveCalf">
+<meta property="og:description" content="教你用 jVectorMap 制作属于自己的旅行足迹 jVectorMapJVectorMap 是一个优秀的、兼容性强的 jQuery 地图插件。 它可以工作在包括 IE6 在内的各款浏览器中，矢量图输出，除官方提供各国地图数据外，用户可以使用数据转换程序定制地图数据。例如街道地图、小区地图等等。 JVectorMap 官方网站提供了很多相关文档和使用示例，感兴趣的小伙伴可以自己研究一下。 官方网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/cf5b72a1ly1fvv1gupvz0j20xx0op760.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/cf5b72a1ly1fvv2t7olhjj20ss0e8jvo.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/cf5b72a1ly1fvv432zeqzj20b806gaaa.jpg">
+<meta property="article:published_time" content="2021-08-06T08:15:12.805Z">
+<meta property="article:modified_time" content="2021-07-30T04:23:12.842Z">
+<meta property="article:author" content="T·Korria·Li">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wx1.sinaimg.cn/large/cf5b72a1ly1fvv1gupvz0j20xx0op760.jpg">
+
+
+<link rel="canonical" href="http://example.com/%E8%B6%B3%E8%BF%B9/jVectorMap-Footprint/README">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"http://example.com/%E8%B6%B3%E8%BF%B9/jVectorMap-Footprint/README.html","path":"足迹/jVectorMap-Footprint/README.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | StriveCalf
+</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <a target="_blank" rel="noopener" href="https://github.com/StriveCalf" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">StriveCalf</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Just do it !</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-足迹"><a href="/%E8%B6%B3%E8%BF%B9/" rel="section"><i class="fa fa-map-marker-alt fa-fw"></i>足迹</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%99%E4%BD%A0%E7%94%A8-jVectorMap-%E5%88%B6%E4%BD%9C%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%97%85%E8%A1%8C%E8%B6%B3%E8%BF%B9"><span class="nav-number">1.</span> <span class="nav-text">教你用 jVectorMap 制作属于自己的旅行足迹</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jVectorMap"><span class="nav-number">1.1.</span> <span class="nav-text">jVectorMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B"><span class="nav-number">1.3.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2%E4%B8%8D%E5%90%8C%E5%9B%BD%E5%AE%B6%E5%9C%B0%E5%9B%BE%E3%80%82"><span class="nav-number">1.4.</span> <span class="nav-text">第一部分：如何更换不同国家地图。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E5%9C%B0%E5%9B%BE%E9%A2%9C%E8%89%B2%E7%AD%89%E7%9B%B8%E5%85%B3%E6%A0%B7%E5%BC%8F%E3%80%82"><span class="nav-number">1.5.</span> <span class="nav-text">第二部分：如何修改地图颜色等相关样式。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%B6%B3%E8%BF%B9%E4%BD%8D%E7%BD%AE%E3%80%82"><span class="nav-number">1.6.</span> <span class="nav-text">第三部分：如何添加足迹位置。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%88%B0%E5%8D%9A%E5%AE%A2%E4%B8%AD"><span class="nav-number">1.7.</span> <span class="nav-text">如何嵌入式到博客中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81"><span class="nav-number">1.8.</span> <span class="nav-text">获取源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88%EF%BC%88%E6%84%9F%E8%B0%A2%E5%A4%A7%E5%AE%B6%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88%EF%BC%89"><span class="nav-number">1.9.</span> <span class="nav-text">问题反馈（感谢大家的问题反馈）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%BF%E5%91%8A%E6%97%B6%E9%97%B4"><span class="nav-number">1.10.</span> <span class="nav-text">广告时间</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="T·Korria·Li"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">T·Korria·Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/StriveCalf" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;StriveCalf" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/strivecalf" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;strivecalf" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/chinalilaotou" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;chinalilaotou" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:strivecalf@yeah.net" title="E-Mail → mailto:strivecalf@yeah.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+  
+  
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/%E8%B6%B3%E8%BF%B9/">足迹</a></li>
+            <li><a href="/%E8%B6%B3%E8%BF%B9/jVectorMap-Footprint/">JVECTORMAP-FOOTPRINT</a></li>
+            <li>README</li>
+          
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="教你用-jVectorMap-制作属于自己的旅行足迹"><a href="#教你用-jVectorMap-制作属于自己的旅行足迹" class="headerlink" title="教你用 jVectorMap 制作属于自己的旅行足迹"></a>教你用 jVectorMap 制作属于自己的旅行足迹</h1><p><img src="http://wx1.sinaimg.cn/large/cf5b72a1ly1fvv1gupvz0j20xx0op760.jpg" alt="我的足迹地图"></p>
+<h2 id="jVectorMap"><a href="#jVectorMap" class="headerlink" title="jVectorMap"></a>jVectorMap</h2><p>JVectorMap 是一个优秀的、兼容性强的 jQuery 地图插件。</p>
+<p>它可以工作在包括 IE6 在内的各款浏览器中，矢量图输出，除官方提供各国地图数据外，用户可以使用数据转换程序定制地图数据。例如街道地图、小区地图等等。</p>
+<p>JVectorMap 官方网站提供了很多相关文档和使用示例，感兴趣的小伙伴可以自己研究一下。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="http://jvectormap.com/">http://jvectormap.com/</a></p>
+<p><img src="http://wx4.sinaimg.cn/large/cf5b72a1ly1fvv2t7olhjj20ss0e8jvo.jpg" alt="jVectorMap"></p>
+<p>今天教大家通过 jVectorMap 制作旅行足迹地图，最终的效果可以查看下面的 Demo 演示（中国），并教大家如何将制作好的足迹地图嵌入到我们自己的博客中。</p>
+<p>Demo : <a target="_blank" rel="noopener" href="http://www.wujiayi.vip/index.php/46.html">http://www.wujiayi.vip/index.php/46.html</a></p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="http://wx1.sinaimg.cn/large/cf5b72a1ly1fvv432zeqzj20b806gaaa.jpg"></p>
+<ul>
+<li><p>红色框中的文件是必须要引入的内容。</p>
+</li>
+<li><p>绿色框中的文件是展示的地图，可自行到官网下载需要的地图 : <a target="_blank" rel="noopener" href="http://jvectormap.com/maps/world/world/">http://jvectormap.com/maps/world/world/</a>，拷贝到 js 目录。</p>
+</li>
+<li><p>index.html 中需要添加足迹位置和相关样式。</p>
+</li>
+</ul>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p> <code>index.html</code> 分为三部分介绍：</p>
+<ul>
+<li>如何更换不同国家地图。</li>
+<li>如何修改地图颜色等相关样式。</li>
+<li>如何添加足迹位置。</li>
+</ul>
+<h2 id="第一部分：如何更换不同国家地图。"><a href="#第一部分：如何更换不同国家地图。" class="headerlink" title="第一部分：如何更换不同国家地图。"></a>第一部分：如何更换不同国家地图。</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--引入jQuery框架--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;js/jquery-1.9.1.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--引入jVectorMap库--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;js/jquery-jvectormap-1.2.2.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--引入样式表--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;js/jquery-jvectormap-1.2.2.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!--引入中国地图数据库--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;js/jquery-jvectormap-cn-merc-en.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!--引入美国地图数据库--&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--script type=&quot;text/javascript&quot; src=&quot;js/jquery-jvectormap-us-aea.js&quot;&gt;&lt;/script--&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--引入世界地图数据库--&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--script type=&quot;text/javascript&quot; src=&quot;js/jquery-jvectormap-world-mill.js&quot;&gt;&lt;/script--&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>提前下载需要的国家地图，拷贝到 js 目录下。</p>
+<p>在 <code>&lt;head&gt;</code> 标签里引入地图数据： <code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/地图文件名&quot;&gt;&lt;/script&gt;</code></p>
+<p><strong>注意</strong> ：同时只能有一个地图库，注意不要引入多个地图数据。可以选择注释掉其他的，方便更改。</p>
+<h2 id="第二部分：如何修改地图颜色等相关样式。"><a href="#第二部分：如何修改地图颜色等相关样式。" class="headerlink" title="第二部分：如何修改地图颜色等相关样式。"></a>第二部分：如何修改地图颜色等相关样式。</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">&lt;!--background-color: 地图背景颜色--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-color:#353535&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		$(<span class="string">&#x27;#map&#x27;</span>).vectorMap(&#123;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">			<span class="comment">// 此处更改地图</span></span></span><br><span class="line"><span class="javascript">			<span class="attr">map</span>: <span class="string">&#x27;cn_merc_en&#x27;</span>,   <span class="comment">// 中国地图</span></span></span><br><span class="line"><span class="javascript">			<span class="comment">//map: &#x27;us-aea&#x27;,     // 美国地图</span></span></span><br><span class="line"><span class="javascript">			<span class="comment">//map: &#x27;world-mill&#x27;, // 世界地图</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">			<span class="attr">backgroundColor</span>: <span class="string">&#x27;transparent&#x27;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="attr">zoomMin</span>: <span class="number">0.9</span>, <span class="comment">// 鼠标缩放时的最小比例</span></span></span><br><span class="line"><span class="javascript">			<span class="attr">zoomMax</span>: <span class="number">2.4</span>, <span class="comment">// 鼠标缩放时的最大比例</span></span></span><br><span class="line"><span class="javascript">			<span class="attr">focusOn</span>: &#123;</span></span><br><span class="line"><span class="javascript">				<span class="attr">x</span>: <span class="number">0.55</span>,</span></span><br><span class="line"><span class="javascript">				<span class="attr">y</span>: <span class="number">2</span>,</span></span><br><span class="line"><span class="javascript">				<span class="attr">scale</span>: <span class="number">0.9</span></span></span><br><span class="line"><span class="javascript">			&#125;,</span></span><br><span class="line"><span class="javascript">			<span class="attr">regionStyle</span>: &#123;</span></span><br><span class="line"><span class="javascript">				<span class="attr">initial</span>: &#123;</span></span><br><span class="line"><span class="javascript">					<span class="attr">fill</span>: <span class="string">&#x27;#e5e5e5&#x27;</span>,   <span class="comment">// 地图颜色</span></span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;fill-opacity&quot;</span>: <span class="number">1</span>, <span class="comment">// 省份（州）是否隐藏，鼠标滑动时显示; 1：显示，2：隐藏。</span></span></span><br><span class="line"><span class="javascript">					<span class="attr">stroke</span>: <span class="string">&#x27;none&#x27;</span>,</span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;stroke-width&quot;</span>: <span class="number">0</span>,</span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;stroke-opacity&quot;</span>: <span class="number">1</span></span></span><br><span class="line"><span class="javascript">				&#125;,</span></span><br><span class="line"><span class="javascript">				<span class="attr">hover</span>: &#123;</span></span><br><span class="line"><span class="javascript">					<span class="attr">fill</span>: <span class="string">&#x27;#ccc&#x27;</span>,  <span class="comment">// 鼠标滑动至某省份的高亮颜色。</span></span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;fill-opacity&quot;</span>: <span class="number">0.8</span></span></span><br><span class="line"><span class="javascript">				&#125;,</span></span><br><span class="line"><span class="javascript">				<span class="attr">selected</span>: &#123;</span></span><br><span class="line"><span class="javascript">					<span class="attr">fill</span>: <span class="string">&#x27;yellow&#x27;</span></span></span><br><span class="line"><span class="javascript">				&#125;,</span></span><br><span class="line"><span class="javascript">				<span class="attr">selectedHover</span>: &#123;&#125;</span></span><br><span class="line"><span class="javascript">			&#125;,</span></span><br><span class="line"><span class="javascript">			<span class="attr">markerStyle</span>: &#123;</span></span><br><span class="line"><span class="javascript">		        <span class="attr">initial</span>: &#123;</span></span><br><span class="line"><span class="javascript">		            <span class="attr">fill</span>: <span class="string">&#x27;#fd8888&#x27;</span>, <span class="comment">// 足迹位置的填充颜色</span></span></span><br><span class="line"><span class="javascript">		            <span class="attr">stroke</span>: <span class="string">&#x27;#fff&#x27;</span>   <span class="comment">// 足迹位置的描边颜色</span></span></span><br><span class="line"><span class="javascript">		        &#125;,</span></span><br><span class="line"><span class="javascript">				<span class="attr">hover</span>: &#123;</span></span><br><span class="line"><span class="javascript">					<span class="attr">fill</span>: <span class="string">&#x27;#fd2020&#x27;</span>, <span class="comment">// 鼠标滑动至足迹位置后的填充颜色</span></span></span><br><span class="line"><span class="javascript">					<span class="attr">stroke</span>: <span class="string">&#x27;#fff&#x27;</span>,  <span class="comment">// 鼠标滑动至足迹位置后的描边颜色</span></span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;fill-opacity&quot;</span>: <span class="number">0.8</span></span></span><br><span class="line"><span class="javascript">				&#125;,</span></span><br><span class="line"><span class="javascript">		    &#125;,</span></span><br><span class="line"><span class="javascript">		&#125;);</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>参照代码注释修改颜色和相关样式。</p>
+<p><strong>千万注意</strong> ：在更改地图时 <code>map: &#39;地图名称&#39;</code>  ，地图名称是地图数据文件名的后半部分。</p>
+<p>例如：</p>
+<p>美国地图文件名：jquery-jvectormap-us-aea.js</p>
+<p>那地图的名称是：us-aea</p>
+<p><strong>但是要注意把 <code>-</code> (横杠)更改成 <code>_</code>（下划线）。 否则不会显示地图。</strong></p>
+<h2 id="第三部分：如何添加足迹位置。"><a href="#第三部分：如何添加足迹位置。" class="headerlink" title="第三部分：如何添加足迹位置。"></a>第三部分：如何添加足迹位置。</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">markers: [ // 足迹位置</span><br><span class="line"></span><br><span class="line">	// &#123;latLng: [经度（保留两位小数）, 纬度（保留两位小数）], name: &#x27;城市名称&#x27;&#125;,</span><br><span class="line">	// 推荐查询经纬度网站：http://www.gpsspg.com/maps.htm</span><br><span class="line"></span><br><span class="line">	&#123;latLng: [39.90, 116.41], name: &#x27;北京&#x27;&#125;,</span><br><span class="line">	&#123;latLng: [31.24, 121.50], name: &#x27;上海&#x27;&#125;,</span><br><span class="line"></span><br><span class="line">	&#123;latLng: [46.06, 122.06], name: &#x27;内蒙古 - 乌兰浩特&#x27;&#125;</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>推荐查询经纬度网站：<a target="_blank" rel="noopener" href="http://www.gpsspg.com/maps.htm">http://www.gpsspg.com/maps.htm</a></p>
+<p>语法：<code>&#123;latLng: [经度（保留两位小数）, 纬度（保留两位小数）], name: &#39;城市名称&#39;&#125;,</code>。</p>
+<h2 id="如何嵌入式到博客中"><a href="#如何嵌入式到博客中" class="headerlink" title="如何嵌入式到博客中"></a>如何嵌入式到博客中</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">style</span>=<span class="string">&quot;max-width: 100%&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">height</span>=<span class="string">&quot;750px&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">src</span>=<span class="string">&quot;替换成你的足迹地图链接&quot;</span>&gt;</span>                                        </span><br><span class="line"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>把制作好的足迹地图文件放在服务器上，把访问连接放在 <code>src</code> 中。</p>
+<p>然后将上面的代码复制到你的博客页面上即可。</p>
+<p>可适配手机端和等比例缩放。</p>
+<h2 id="获取源码"><a href="#获取源码" class="headerlink" title="获取源码"></a>获取源码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/HelloWuJiaYi/jVectorMap-Footprint</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题反馈（感谢大家的问题反馈）"><a href="#问题反馈（感谢大家的问题反馈）" class="headerlink" title="问题反馈（感谢大家的问题反馈）"></a>问题反馈（感谢大家的问题反馈）</h2><ul>
+<li>部分服务器的编码问题导致显示文字乱码 | <a target="_blank" rel="noopener" href="https://github.com/maxiaohong-m">@xiaohong.m</a></li>
+</ul>
+<h2 id="广告时间"><a href="#广告时间" class="headerlink" title="广告时间"></a>广告时间</h2><p>欢迎访问我的个人博客:</p>
+<p><a target="_blank" rel="noopener" href="http://www.wujiayi.vip/">http://www.wujiayi.vip</a></p>
+<p>我的微信公众号：</p>
+<p><code>吴佳轶同学</code></p>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/%E8%B6%B3%E8%BF%B9/">足迹</a></li>
+            <li><a href="/%E8%B6%B3%E8%BF%B9/jVectorMap-Footprint/">JVECTORMAP-FOOTPRINT</a></li>
+            <li>README</li>
+          
+  </ul>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T·Korria·Li</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
