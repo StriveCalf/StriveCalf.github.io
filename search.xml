@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo博客+Github部署</title>
+    <url>/2021/07/31/Hexo%E5%8D%9A%E5%AE%A2+Github%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>​    首先说明一下，这篇文章主要是面向刚刚开始接触博客且非计算机相关专业的人（本人也是非相关专业）。所以文章中会相对详细且没有过多的相关简介和背景介绍等等。本人使用的是Mac系统进行搭建，但是Win系统的搭建过程操作也差不多，问题不大。</p>
+<span id="more"></span>
+
+<h1 id="Hexo搭建步骤"><a href="#Hexo搭建步骤" class="headerlink" title="Hexo搭建步骤"></a>Hexo搭建步骤</h1><ol>
+<li>安装Node.js</li>
+<li>安装Hexo</li>
+</ol>
+<h2 id="一、安装Node-js"><a href="#一、安装Node-js" class="headerlink" title="一、安装Node.js"></a>一、安装Node.js</h2><ol>
+<li><p>访问<a href="https://www.nodejs.org/">Node.js</a>官网下载相应系统的LTS版本默认安装即可。</p>
+</li>
+<li><p>打开终端切换到<code>root</code>用户后输入以下代码查看node.js是否安装成功，若安装成功会显示相应的版本信息。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">sudo su</span><br><span class="line"># 输入开机密码</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="二、安装Hexo博客框架"><a href="#二、安装Hexo博客框架" class="headerlink" title="二、安装Hexo博客框架"></a>二、安装Hexo博客框架</h2><ol>
+<li><p>在安装Hexo博客框架之前需要安装<font color="Crimson"><code>npm</code></font>。但是国内由于镜像源速度很慢一般是利用<font color="Crimson"><code>npm</code></font>下载使用<font color="Crimson"><code>cnpm</code></font>；代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cnpm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用<font color="Crimson"><code>cnpm</code></font>安装Hexo框架；代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
+<li><p>建立空文件夹用于存放Hexo博客内容；我以新建<font color="Crimson"><code>blog</code></font>为例。并进入<font color="Crimson"><code>blog</code></font>；代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">mkdir blog</span><br><span class="line">cd blog</span><br></pre></td></tr></table></figure></li>
+<li><p>此时<font color="Crimson"><code>blog</code></font>文件夹为空文件夹，所以需要先初始化一个Hexo；代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">sudo hexo init</span><br></pre></td></tr></table></figure></li>
+<li><p>启动Hexo博客，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>可以在本地的4000端口进行访问查看：<u><em><font color="Crimson"><code>localhost:4000</code></font></em></u> </p>
+</li>
+<li><p>终止Hexo博客，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ctrl+c</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h1><ol>
+<li><p>首先注册Github账号并登录</p>
+</li>
+<li><p>新建仓库：路径如下：</p>
+<p><font color="Crimson"><code>+</code></font>/<font color="Crimson"><code>New repository</code></font>/</p>
+<p>在<font color="Crimson"><code>Repository name</code></font>中输入格式如下：<font color="Crimson"><code>昵称.github.io</code></font>[必须是这个名称]；备注随便填写，点击下方<font color="Crimson"><code>create</code></font></p>
+</li>
+<li><p>在新建的<font color="Crimson"><code>blog</code></font>目录下安装<font color="Crimson"><code>git</code></font>部署插件，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></li>
+<li><p>打开blog目录下的<font color="Crimson"><code>_config.yml</code></font>文件并修改一些参数，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
+
+<p>在文件的最底部<font color="Crimson"><code># Deployment</code></font>配置中，修改并添加以下参数后保存文件：</p>
+<p><img src="/2021/07/31/Hexo%E5%8D%9A%E5%AE%A2+Github%E9%83%A8%E7%BD%B2/1.png" alt="截屏2021-08-04 23.00.05"></p>
+<p> <font color="Crimson"><code>:</code></font>后必须有空格<br>如果是使用编辑器打开直接保存就好，若使用终端打开则按<font color="Crimson"><code>Esc</code></font>后输入<font color="Crimson"><code>：wq</code></font></p>
+</li>
+<li><p>部署到远端：代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>出现对话框后点击重置即可，之后便可输入<font color="Crimson"><code>username.github.io</code></font>访问博客。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客+NexT主题美化</title>
+    <url>/2021/08/05/Hexo%E5%8D%9A%E5%AE%A2+Next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<p>上一篇中讲解了Hexo博客的搭建，这篇将会对主题的修改进行讲解。</p>
+<span id="more"></span>
+<p>Hexo博客支持很多主题风格，本期使用Next主题为例进行说明且全程在<font color="Crimson"><code>Mac</code></font>系统下进行操作。本次教程中会出现两个<font color="Crimson"><code>_config.yml</code></font>文件。为区分以下内容中对博客根目录下的<font color="Crimson"><code>_config.yml</code></font>文件称为站点配置文件；<font color="Crimson"><code>themes/next/_config.yml</code></font>文件称为主题配置文件。<br><img src="/2021/08/05/Hexo%E5%8D%9A%E5%AE%A2+Next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/1.png"></p>
+<h2 id="Next主题的安装"><a href="#Next主题的安装" class="headerlink" title="Next主题的安装"></a>Next主题的安装</h2><blockquote>
+<p>打开终端，进入root模式，进入博客根目录下：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">sudo</span> <span class="string">su</span>				<span class="comment"># 进入root模式</span></span><br><span class="line"><span class="attr">password:</span>			<span class="comment"># 输入开机密码</span></span><br><span class="line"><span class="string">cd</span> <span class="string">blog</span>				<span class="comment"># 进入博客根目录，我的命名为blog</span></span><br><span class="line"><span class="string">Git</span> <span class="string">clone</span> <span class="string">https：//github.com/theme-next/hexo-theme-next</span> <span class="string">themes/next</span>	<span class="comment"># 克隆Next主题到themes文件下</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Next主题的启用"><a href="#Next主题的启用" class="headerlink" title="Next主题的启用"></a>Next主题的启用</h2><blockquote>
+<p>打开<font color="Crimson"><code>站点配置文件</code></font>，查找<font color="Crimson"><code>theme</code></font>字段；将字段改为<font color="Crimson"><code>theme: next</code></font>(<strong>冒号</strong><font color="Crimson"><code>:</code><br></font>之后要有空格分隔)，保存重新启动博客查看效果即可。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span> <span class="comment"># 选择博客主题，名字为themes中选择的主题文件夹名称</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Next主题基本设置和美化"><a href="#Next主题基本设置和美化" class="headerlink" title="Next主题基本设置和美化"></a>Next主题基本设置和美化</h1><h2 id="主题基本设置"><a href="#主题基本设置" class="headerlink" title="主题基本设置"></a>主题基本设置</h2><h3 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>查找<font color="Crimson"><code>scheme</code></font>字段，默认提供了四种风格。根据个人喜好进行选择。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># next 主题选择</span></span><br><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将<font color="Crimson"><code>#</code></font>注释去掉，即启用该方案风格。博主采用Gemini主题。</p>
+</blockquote>
+<h3 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h3><blockquote>
+<p>打开<font color="Crimson"><code>站点配置文件</code></font>，查找<font color="Crimson"><code>language</code></font>字段；将<font color="Crimson"><code>language:</code></font>修改为<font color="Crimson"><code>language: zh-CN</code></font>将语言设置为中文。默认为英文显示。其他语言可进入<a href="https://theme-next.iissnan.com/getting-started.html#theme-settings">Next使用文档</a>查看。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置菜单及对应页面"><a href="#设置菜单及对应页面" class="headerlink" title="设置菜单及对应页面"></a>设置菜单及对应页面</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>menu</code></font>字段。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span> <span class="comment"># 侧边栏显示此条;设置博客各个页面的相对路径，默认根路径是blog/source</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span>                              <span class="comment"># 首页</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span>                         <span class="comment"># 标签</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span>               <span class="comment"># 分类</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span>              <span class="comment"># 归档</span></span><br><span class="line">  <span class="attr">footprint:</span> <span class="string">/footprint/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-map-marker-alt</span>     <span class="comment"># 足迹</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span>                       <span class="comment"># 关于</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar            # 日历</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap            # 站点地图，供搜索引擎爬取</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat              # 腾讯公益404</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将<font color="Crimson"><code>#</code></font>注释去掉，即显示对应的菜单项目。也可自定义新的菜单项。例如<font color="Crimson"><code>足迹</code></font>。</p>
+</blockquote>
+<ul>
+<li><p>新添加菜单有两种方式：</p>
+<ul>
+<li><p>打开<font color="Crimson"><code>hexo/themes/next/languages/zh-CN.yml</code></font>，在<font color="Crimson"><code>menu</code></font>下自定义，如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">	<span class="attr">footprint:</span> <span class="string">足迹</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在博客根目录下生成新的标签页，代码如下：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">n</span> <span class="string">page</span> <span class="string">&quot;footprint&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此时，在<font color="Crimson"><code>source</code></font>下会生成<font color="Crimson"><code>footprint</code></font>文件夹</p>
+</blockquote>
+<blockquote>
+<p>在<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>menu</code></font>字段下，输入以下字段即可：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">footprint:</span> <span class="string">/footprint/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-map-marker-alt</span>	<span class="comment"># 标签名称:/显示文件夹名称/ || 显示图标</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Next主题默认使用的显示图标来自<a href="https://fontawesome.com/">fontawesome</a>。</p>
+</blockquote>
+</li>
+<li><p>在博客根目录下生成新的标签页，代码如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">n</span> <span class="string">page</span> <span class="string">&quot;足迹&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此时，在<font color="Crimson"><code>source</code></font>下会生成<font color="Crimson"><code>footprint</code></font>文件夹</p>
+</blockquote>
+<blockquote>
+<p>在<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>menu</code></font>字段下，输入以下字段即可：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">足迹:</span> <span class="string">/足迹/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-map-marker-alt</span>	<span class="comment"># 标签名称:/显示文件夹名称/ || 显示图标</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h2><h3 id="增加标签页和分类页"><a href="#增加标签页和分类页" class="headerlink" title="增加标签页和分类页"></a>增加标签页和分类页</h3><blockquote>
+<p>上述的<font color="Crimson"><code>设置菜单及对应页面</code></font>，即是增加标签页和分类页。</p>
+</blockquote>
+<h3 id="打开标签页和分类页"><a href="#打开标签页和分类页" class="headerlink" title="打开标签页和分类页"></a>打开标签页和分类页</h3><blockquote>
+<p>在博客的根目录下新建<font color="Crimson"><code>tags</code></font>；代码如下：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">n</span> <span class="string">page</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>打开<font color="Crimson"><code>blog/source/tags/index.md</code></font>，对应着进行修改。之后在发布的博文中添加<font color="Crimson"><code>type: &quot;tages&quot;</code></font>即可。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="comment"># 输入标签的名称</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2021-07-27 23:35:21</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;tags&quot;</span>    <span class="comment">#定义标签的类型</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>新建分类页的方法和新建标签页类似。首先在博客根目录下新建<font color="Crimson"><code>categories</code></font>；代码如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">n</span> <span class="string">page</span> <span class="string">categories</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>打开<font color="Crimson"><code>blog/source/categories/index.md</code></font>，对应着进行修改。之后在发布的博文中添加<font color="Crimson"><code>type: &quot;categories&quot;</code></font>即可。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="更改头像"><a href="#更改头像" class="headerlink" title="更改头像"></a>更改头像</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>avatar</code></font>；</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Sidebar Avatar</span></span><br><span class="line"><span class="comment"># avatar: 																								# 设置头像</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">/images/avatar.gif</span>																	<span class="comment"># 头像文件：blog/themes/next/source/images/&#x27;avatar.gif&#x27; 可进行修改</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将<font color="Crimson"><code>#</code></font>注释去掉，即启用头像。在<font color="Crimson"><code>blog/themes/next/source/images</code></font>文件下添加头像文件并修改<font color="Crimson"><code>url</code></font>即可。</p>
+</blockquote>
+<h3 id="设置头像为圆形可旋转"><a href="#设置头像为圆形可旋转" class="headerlink" title="设置头像为圆形可旋转"></a>设置头像为圆形可旋转</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>avatar</code></font>字段；</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">rounded:</span> <span class="literal">true</span>																						<span class="comment"># 头像为原型或方形</span></span><br><span class="line"> <span class="comment"># If true, the avatar will be rotated with the cursor.</span></span><br><span class="line"> <span class="attr">rotated:</span> <span class="literal">false</span> 																					<span class="comment"># 点击头像是否旋转</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 将<font color="Crimson"><code>#</code></font>注释去掉并将<font color="Crimson"><code>true</code></font>修改为<font color="Crimson"><code>false</code></font>即可。</p>
+</blockquote>
+<h3 id="更改标题和作者"><a href="#更改标题和作者" class="headerlink" title="更改标题和作者"></a>更改标题和作者</h3><blockquote>
+<p>打开<font color="Crimson"><code>站点配置文件</code></font>，查找<font color="Crimson"><code>site</code></font>字段。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span>  									<span class="comment"># 博客名称，用于网站名称显示</span></span><br><span class="line"><span class="attr">subtitle:</span>  								<span class="comment"># 博客标题</span></span><br><span class="line"><span class="attr">description:</span>							<span class="comment"># 位于头像下方的标题</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span>										<span class="comment"># 博客作者</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="启用侧边栏社交链接"><a href="#启用侧边栏社交链接" class="headerlink" title="启用侧边栏社交链接"></a>启用侧边栏社交链接</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>social</code></font>字段。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">social:</span> <span class="comment"># 社交账号链接</span></span><br><span class="line">  <span class="attr">GitHub:</span> <span class="string">https://github.com/yourname</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">  <span class="attr">Weibo:</span> <span class="string">https://weibo.com/yourname</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-weibo</span></span><br><span class="line">  <span class="attr">Twitter:</span> <span class="string">https://twitter.com/yourname</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-twitter</span></span><br><span class="line">  <span class="attr">E-Mail:</span> <span class="string">mailto:your</span> <span class="string">E-Mail</span> <span class="string">address</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-envelope</span></span><br><span class="line">  <span class="comment">#Google: https://plus.google.com/yourname || fab fa-google</span></span><br><span class="line">  <span class="comment">#FB Page: https://www.facebook.com/yourname || fab fa-facebook</span></span><br><span class="line">  <span class="comment">#StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span></span><br><span class="line">  <span class="comment">#YouTube: https://youtube.com/yourname || fab fa-youtube</span></span><br><span class="line">  <span class="comment">#Instagram: https://instagram.com/yourname || fab fa-instagram</span></span><br><span class="line">  <span class="comment">#Skype: skype:yourname?call|chat || fab fa-skype</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将<font color="Crimson"><code>#</code></font>注释去掉，即显示对应的链接图标。更改图标方法详见<font color="Crimson"><code>设置菜单和对应页面</code></font>中的自定义添加菜单名称。</p>
+<p>在添加<font color="Crimson"><code>E-Mail</code></font>时，<font color="Crimson"><code>mailto</code></font>必须添加，否则会出现错误。</p>
+</blockquote>
+<h3 id="启用友情链接"><a href="#启用友情链接" class="headerlink" title="启用友情链接"></a>启用友情链接</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>links</code></font>字段。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Blog rolls # 当有链接时才会显示，下方的‘icon’和‘title’可以进行修改不同的样式</span></span><br><span class="line"><span class="attr">links_settings:</span></span><br><span class="line">  <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-globe</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">Links</span></span><br><span class="line">  <span class="comment"># Available values: block | inline</span></span><br><span class="line">  <span class="attr">layout:</span> <span class="string">block</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># links:</span></span><br><span class="line">  <span class="comment"># name: link # 输入“显示名称”：“链接”;例如：百度: https://baidu.com/</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将<font color="Crimson"><code>#</code></font>注释去掉，即显示友情链接。</p>
+</blockquote>
+<h3 id="开启打赏功能"><a href="#开启打赏功能" class="headerlink" title="开启打赏功能"></a>开启打赏功能</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>reward</code></font>字段。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">reward:</span></span><br><span class="line">	<span class="comment">#reward_comment:											# 输入显示的内容，例如：“感谢大赏”</span></span><br><span class="line">  <span class="comment">#wechatpay: /images/wechatpay.png			# 微信支付二维码</span></span><br><span class="line">  <span class="comment">#alipay: /images/alipay.png						# 支付宝支付二维码</span></span><br><span class="line">  <span class="comment">#paypal: /images/paypal.png						# PayPal支付二维码</span></span><br><span class="line">  <span class="comment">#bitcoin: /images/bitcoin.png					# bitcoin支付二维码</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将<font color="Crimson"><code>#</code></font>注释去掉，即显示相应的二维码。</p>
+<p>将二维码添加至<font color="Crimson"><code>blog/themes/next/source/images</code></font>路径下即可；注意图片名称要对应一致。</p>
+</blockquote>
+<h3 id="开启订阅公众号"><a href="#开启订阅公众号" class="headerlink" title="开启订阅公众号"></a>开启订阅公众号</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>wechat subscriber</code></font>字段。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># wechat_subscriber:</span></span><br><span class="line">  <span class="comment">#enabled: true</span></span><br><span class="line">  <span class="comment">#qcode: /path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg</span></span><br><span class="line">  <span class="comment">#description: ex. subscribe to mu blog by scanning my public wechat account</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将<font color="Crimson"><code>#</code></font>注释去掉，即可在每篇博文中显示订阅公众号二维码。</p>
+<p><strong>注意：</strong> 此特性在版本 <strong><font color="Crimson"><code>5.0.1</code></font></strong> 中引入，要使用此功能请确保所使用的 NexT 版本在此之后。</p>
+</blockquote>
+<h3 id="添加动态背景"><a href="#添加动态背景" class="headerlink" title="添加动态背景"></a>添加动态背景</h3><blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>canvas</code></font>或<font color="Crimson"><code>three_waves</code></font>字段。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># canvas_nest</span></span><br><span class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span> 	<span class="comment"># 开启动画</span></span><br><span class="line"><span class="attr">canvas_nest:</span> <span class="literal">false</span> 	<span class="comment"># 关闭动画</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>根据需求进行更该即可。</p>
+</blockquote>
+<blockquote>
+<p><strong>注意：</strong> **<font color="Crimson"><code>three_waves</code></font>**在版本 <strong><font color="Crimson"><code>5.0.1</code></font></strong> 中引入，要使用此功能请确保所使用的 NexT 版本在此之后。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># three_waves</span></span><br><span class="line"><span class="attr">three_waves:</span> <span class="literal">true</span> 	<span class="comment"># 开启动画</span></span><br><span class="line"><span class="attr">three_waves:</span> <span class="literal">false</span>  <span class="comment"># 关闭动画</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h3><blockquote>
+<p>在博客根目录下新建一篇文章；代码如下：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">n</span> <span class="string">blogname</span>			<span class="comment"># 新建一篇名为“blogname”的博文</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在<font color="Crimson"><code>blog/source/_post</code></font>文件夹下会看到名为<font color="Crimson"><code>blogname.md</code></font>的文件，之后可以进行编辑。</p>
+</blockquote>
+<h3 id="首页文章设置阅读全文"><a href="#首页文章设置阅读全文" class="headerlink" title="首页文章设置阅读全文"></a>首页文章设置阅读全文</h3><blockquote>
+<p>在博文中插入<font color="Crimson"><code>&lt;!--more--&gt;</code></font>后上方内容为首页显示内容，下方为点开<font color="Crimson"><code>阅读全文</code></font>后显示内容。</p>
+</blockquote>
+<h3 id="修改文章内链接样式"><a href="#修改文章内链接样式" class="headerlink" title="修改文章内链接样式"></a>修改文章内链接样式</h3><blockquote>
+<p>打开<font color="Crimson"><code>blog/themes/next/source/css/_common/components/post</code></font>路径下的<font color="Crimson"><code>post.styl</code></font>或<font color="Crimson"><code>index.styl</code></font>文件；添加一下代码：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">.post-body</span> <span class="string">p</span> <span class="string">a&#123;</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">hotpink;</span>							<span class="comment"># 链接未点击时的颜色</span></span><br><span class="line">  <span class="attr">border-bottom:</span> <span class="string">none;</span></span><br><span class="line">  <span class="string">&amp;:haver&#123;</span></span><br><span class="line">    <span class="attr">color:</span> <span class="string">SteelBlue1</span>					<span class="comment"># 链接点击时的颜色</span></span><br><span class="line">  <span class="string">&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改文章底部带-的标签"><a href="#修改文章底部带-的标签" class="headerlink" title="修改文章底部带#的标签"></a>修改文章底部带<font color="Crimson"><code>#</code></font>的标签</h3><blockquote>
+<p>打开<font color="Crimson"><code>blog/themes/next/layout/_macro</code></font>路径下的<font color="Crimson"><code>post.swig</code></font>或<font color="Crimson"><code>post.njk</code></font>文件；查找<font color="Crimson"><code>post-tags</code></font>字段。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&lt;a</span> <span class="string">href=&quot;&#123;&#123;</span> <span class="string">url_for(tag.path)</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">rel=&quot;tag&quot;&gt;&lt;i</span> <span class="string">class=&quot;图标名称&quot;&gt;&lt;/i&gt;</span> &#123;&#123; <span class="string">tag_indicate</span> &#125;&#125; &#123;&#123; <span class="string">tag.name</span> &#125;&#125;<span class="string">&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>图标名称详见<font color="Crimson"><code>设置菜单和对应页面</code></font>中的自定义添加菜单名称。</p>
+</blockquote>
+<h3 id="网站图标显示"><a href="#网站图标显示" class="headerlink" title="网站图标显示"></a>网站图标显示</h3><blockquote>
+<p>网站图标制作网站：<a href="https://www.bitbug.net/">bitbug</a>；导入图片制作<font color="Crimson"><code>16*16</code></font>和<font color="Crimson"><code>32*32</code></font>的<font color="Crimson"><code>ico</code></font>文件；置于<font color="Crimson"><code>blog/themes/next/source/images</code></font>文件夹下。</p>
+</blockquote>
+<blockquote>
+<p>打开<font color="Crimson"><code>主题配置文件</code></font>，查找<font color="Crimson"><code>favicon</code></font>字段：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/16*16.ico</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/32*32.ico</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/apple-touch-icon-next.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment">#android_manifest: /manifest.json</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>修改<font color="Crimson"><code>small</code></font>和<font color="Crimson"><code>medium</code></font>的文件名即可。</p>
+</blockquote>
+<h3 id="添加fork-Github"><a href="#添加fork-Github" class="headerlink" title="添加fork Github"></a>添加fork Github</h3><blockquote>
+<p>打开<font color="Crimson"><code>blog/themes/next/layout</code></font>路径下的<font color="Crimson"><code>_layout.njk</code></font>或<font color="Crimson"><code>blog/themes/next/layout</code></font>路径下的<font color="Crimson"><code>_layout.swig</code></font>文件；查找<font color="Crimson"><code>headband</code></font>字段。</p>
+</blockquote>
+<blockquote>
+<p>根据自己的需求在<a href="https://tholman.com/github-corners/">Corners</a>或<a href="https://github.blog/2008-12-19-github-ribbons/">Ribbons</a>复制相应的代码添加到<font color="Crimson"><code>headband</code></font>字段下方。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&lt;div</span> <span class="string">class=&quot;headband&quot;&gt;&lt;/div&gt;</span></span><br><span class="line">  <span class="comment"># 将复制的代码复制此处</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="感谢名单"><a href="#感谢名单" class="headerlink" title="感谢名单"></a>感谢名单</h1><ul>
+<li><a href="https://www.mackxin.com/">馨客栈</a>的<a href="https://www.bilibili.com/video/BV16W411t7mq">使用Hexo博客搭建系列</a></li>
+<li><a href="www.codesheep.cn">CodeSheep</a>的<a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客</a></li>
+<li><a href="https://blog.csdn.net/weixin_39345384">对方北方</a>的<a href="https://blog.csdn.net/weixin_39345384/article/details/80785373?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162812573816780357215703%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=162812573816780357215703&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-80785373.pc_search_result_control_group&utm_term=hexo+next%E7%BE%8E%E5%8C%96&spm=1018.2226.3001.4187">Hexo框架下用NexT(v7.0+主题美化博客)</a></li>
+<li><a href="https://blog.csdn.net/weixin_39666151">The-third-brother</a>的<a href="https://blog.csdn.net/weixin_39666151/article/details/81211335?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162815376016780274113412%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162815376016780274113412&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-1-81211335.pc_search_result_cache&utm_term=hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96&spm=1018.2226.3001.4187">Hexo搭建个人博客（二）页面美化</a></li>
+<li><a href="https://notes.doublemine.me/">doublemine</a>的<a href="https://notes.doublemine.me/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html">为NexT主题添加文章阅读量统计功能</a></li>
+</ul>
+<h1 id="Hexo博客搭建美化"><a href="#Hexo博客搭建美化" class="headerlink" title="Hexo博客搭建美化"></a>Hexo博客搭建美化</h1><ul>
+<li><a href>Hexo博客+Github部署</a></li>
+<li><a href>Hexo博客添加足迹地图</a></li>
+</ul>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
+<p>本次只介绍了主题美化的一部分内容，更多的内容可参考<a href="https://theme-next.iissnan.com/">NexT使用文档</a></p>
+<p>本教程参考网上多位博主的文章，在此表示感谢。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Hexo blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>blog</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+</search>
